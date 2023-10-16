@@ -86,3 +86,7 @@ a.desc:after {
 .form-group {
     margin-bottom: 1rem;
 }
+
+.no-grid-lines li {
+    border: none; /* Remove border */
+}
