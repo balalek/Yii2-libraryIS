@@ -28,4 +28,4 @@ Since this project is created from the basic template of Yii2, I am attaching a 
 ### Instalation
 1. Clone this repository
 2. If you are using XAMPP, put the `basic` folder in `C:\xampp\htdocs` and type `http://localhost/basic/web/index.php` in your browser
-3. Run MySQL database using XAMPP for example, where you can use phpMyAdmin, create a new database called `library` and import the `library.sql` file.
+3. Run MySQL database using XAMPP for example, where you can use phpMyAdmin (`http://localhost/phpmyadmin/`), create a new database called `library` and import the `library.sql` file.
