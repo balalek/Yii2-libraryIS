@@ -133,6 +133,27 @@ class SiteController extends Controller
         }
     }
 
+    /**
+     * Displays customers page.
+     *
+     * @return string
+     */
+    public function actionCustomers()
+    {
+        $users = Users::find()->all();
+        // Find books in loans, where user_id is the same and return_date is after today and store it in array
+        foreach ($users as $user) {
+            $user->borrowed_books = Loans::find()
+                ->select(['books.title'])
+                ->leftJoin('books', 'loans.book_id = books.book_id')
+                ->where(['user_id' => $user->user_id])
+                ->andWhere(['>', 'return_date', date('Y-m-d')])
+                ->column();
+        }
+
+        return $this->render('customers', ['users' => $users]);
+    }
+
 
 
 
@@ -234,15 +255,5 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }

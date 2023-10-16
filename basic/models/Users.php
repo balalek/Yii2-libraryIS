@@ -9,6 +9,8 @@ class Users extends ActiveRecord
     private $name;
     private $phone;
     private $email;
+    // Array of books that user borrowed
+    public $borrowed_books = [];
 
     public function rules()
     {
